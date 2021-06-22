@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4fe4483fd5c544784fde9afb1dfd67, type: 3}
+  m_Name: Shotgun
+  m_EditorClassIdentifier: 
+  Name: Shotgun
+  Ammo: 4
+  AmmoMax: 4
+  Damage: 80
+  FireRate: 0.6
+  ReloadSpeed: 1
+  BulletSpeed: 6
+  Distance: 6
+  Pellet: 7
+  Spread: 50
