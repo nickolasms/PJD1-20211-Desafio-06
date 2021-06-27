@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3158276727555995691}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5be52f437e1c24e83e640c07224eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: {fileID: 0}
   bulletPrefab: {fileID: 0}
   diffAngle: {x: 0, y: 0, z: 0}
   weaponIndex: 0
