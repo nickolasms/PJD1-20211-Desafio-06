@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Factory = FactoryController;
 
-public enum FactoryItem { None, PlayerBullet, Enemy }
+public enum FactoryItem { None, PlayerBullet, Enemy, PlayerRocket }
 
 public class FactoryController : MonoBehaviour
 {
