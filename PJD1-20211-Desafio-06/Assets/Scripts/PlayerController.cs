@@ -12,7 +12,7 @@ public class PlayerController : Rigidbody2DBase
 
     public GameObject bulletPrefab;
 
-    private float speed = 2f;
+    private float speed = 4f;
 
     public float Horizontal { get; protected set; }
     public float Vertical { get; protected set; }
