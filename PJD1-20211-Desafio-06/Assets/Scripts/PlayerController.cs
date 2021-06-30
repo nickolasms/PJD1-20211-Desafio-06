@@ -73,6 +73,7 @@ public class PlayerController : Rigidbody2DBase
         ammunition.Add(WeaponType.Shotgun, 16);
         ammunition.Add(WeaponType.MachineGun, 200);
         ammunition.Add(WeaponType.RocketLauncher, 12);
+        ammunition.Add(WeaponType.Sniper, 10);
 
         //GameEvents.WeaponFireEvent.AddListener();
         GameEvents.WeaponReloadEvent.AddListener(HandleRealod);

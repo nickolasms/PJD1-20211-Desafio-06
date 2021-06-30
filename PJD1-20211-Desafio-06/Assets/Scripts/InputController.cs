@@ -113,6 +113,10 @@ public class InputController : MonoBehaviour
         {
             SelectWeapon = 4;
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            SelectWeapon = 5;
+        }
 
         if(Input.GetKeyDown(KeyCode.E))
         {

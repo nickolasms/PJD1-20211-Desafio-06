@@ -19,6 +19,11 @@ public class Weapon : MonoBehaviour
 
     public WeaponDTO weaponDTO;
 
+    protected bool Sniper = false;
+    public LineRenderer lineRendererSniper;
+
+    protected float TimerSniper;
+
     protected bool isFiring;
     protected bool isReloading;
     protected bool CanFire 
@@ -39,6 +44,8 @@ public class Weapon : MonoBehaviour
         {
             Init(weaponDTO);
         }
+
+        TimerSniper = FireRate;
     }
 
     public virtual void Init(WeaponDTO wdto)
@@ -57,7 +64,11 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        if(CanFire)
+        if(CanFire && Name == "Sniper")
+        {
+            Sniper = true;
+        }
+        else if(CanFire)
         {
             CreateProjectile();
             StartCoroutine(FireCooldown());
@@ -78,6 +89,13 @@ public class Weapon : MonoBehaviour
         GameEvents.WeaponFireEvent.Invoke(Ammo, AmmoMax, Type);
         yield return new WaitForSeconds(FireRate);
         isFiring = false;
+    }
+
+    private void StopFire()
+    {
+        isFiring = true;
+        Ammo--;
+        GameEvents.WeaponFireEvent.Invoke(Ammo, AmmoMax, Type);
     }
 
     public void Reload()
@@ -105,5 +123,51 @@ public class Weapon : MonoBehaviour
         GameEvents.WeaponFireEvent.Invoke(Ammo, AmmoMax,Type);
         Debug.Log("End Reload");
     }
+
+    public void Update()
+    {
+        if(Sniper == true  && Ammo >= 1 && Input.GetMouseButton(0))
+        {
+            TimerSniper -= Time.deltaTime;
+            float seconds = Mathf.FloorToInt(TimerSniper % 60F);
+            GameEvents.WeaponSniper.Invoke(TimerSniper);
+            if(seconds <= 0)
+            {
+                CreateProjectile();
+                StopFire();
+                Sniper = false;
+                TimerSniper = FireRate;
+            }
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            TimerSniper = FireRate;
+        }
+
+
+        if(Name == "Sniper")
+        {
+            lineRendererSniper.SetPosition(0, bulletRespawn.position);
+            RaycastHit2D hitInfo = Physics2D.Raycast(bulletRespawn.position, bulletRespawn.up);
+            if(hitInfo)
+            {
+                EnemyController enemy = hitInfo.transform.GetComponent<EnemyController>();
+                if (enemy != null)
+                {
+                    lineRendererSniper.enabled = true;
+                    lineRendererSniper.SetPosition(1, hitInfo.point);
+                }
+                
+            }
+            else
+            {
+                lineRendererSniper.enabled = false;
+            }
+           
+        }
+        
+        
+    }
+
 
 }
