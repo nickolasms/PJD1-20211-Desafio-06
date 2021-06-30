@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     {
         Factory.Clear();
         Factory.Register(FactoryItem.PlayerBullet, BulletPrefab, 100);
-        Factory.Register(FactoryItem.Enemy, Enemy, 20);
+        Factory.Register(FactoryItem.Enemy, Enemy, 200);
 
         player = GameObject.FindObjectOfType<PlayerController>();
     }
@@ -35,6 +35,20 @@ public class GameController : MonoBehaviour
                 Factory.Recycle(FactoryItem.Enemy, enemy.gameObject);
                 RespawnEnemy();
             }
+        }
+    }
+
+    static public void EnnemyDamageTrigger(EnemyController damage, Collision2D collision)
+    {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+
+        if (player)
+        {
+            if (player.ApplyDamage(damage.Damage))
+            {
+                Destroy(player.gameObject);
+            }
+             
         }
     }
 

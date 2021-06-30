@@ -7,19 +7,36 @@ public class HudController : MonoBehaviour
 {
     public Text Ammo;
     public Image Reload;
-
+    public Image PlayerHp;
+  
     public Color AmmoMax;
     public Color AmmoMin;
+    public Color PlayerHpMax;
+    public Color PlayerHpMin;
+   
 
     private void Awake()
     {
         Reload.fillAmount = 0;
+        PlayerHp.fillAmount = 1f;
+        PlayerHp.color = PlayerHpMax;
+     
     }
 
     private void Start()
     {
         GameEvents.WeaponReloadEvent.AddListener(HandleReload);
         GameEvents.WeaponFireEvent.AddListener(HandleAmmo);
+        GameEvents.PlayerHpEvent.AddListener(HandlePlayerHp);
+
+    }
+
+    protected void HandlePlayerHp(int currentHp, int maxHp)
+    {
+        PlayerHp.fillAmount = (float)currentHp / (float)maxHp;
+
+        PlayerHp.color = Color.Lerp(PlayerHpMin, PlayerHpMax, (float)currentHp / (float)maxHp);
+        
     }
 
     protected void HandleAmmo(int currentAmmo, int maxAmmo, WeaponType weapon)
