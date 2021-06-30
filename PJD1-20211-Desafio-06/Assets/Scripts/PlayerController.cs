@@ -64,6 +64,9 @@ public class PlayerController : Rigidbody2DBase
     protected virtual void Start()
     {
         GameEvents.WeaponFireEvent.Invoke(CurrentWeapon.Ammo, CurrentWeapon.weaponDTO.AmmoMax, CurrentWeapon.Type);
+
+        //adiciona o icon do player no minimapa
+        IconCreator.AddIcon(transform, 0);
     }
 
     public virtual void Init()

@@ -36,6 +36,9 @@ public class EnemyController : Rigidbody2DBase, IPoolableObject
         map = GetComponent<NavMeshAgent>();
         map.updateRotation = false;
         map.updateUpAxis = false;
+
+        //adiciona o icon do enemy no minimapa
+        IconCreator.AddIcon(transform, 1);
     }
 
     void Update()
