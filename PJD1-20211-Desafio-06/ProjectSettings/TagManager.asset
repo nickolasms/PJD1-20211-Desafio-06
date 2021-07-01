@@ -44,3 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Scenery
+    uniqueID: 3515005837
+    locked: 0
+  - name: Player
+    uniqueID: 1092698663
+    locked: 0
+  - name: Enemy
+    uniqueID: 2158416499
+    locked: 0
+  - name: Bullets
+    uniqueID: 4063341365
+    locked: 0

@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 316265477743638844, guid: 5f1f03ae7e0743d4bb2350ef8c99e7ac,
+    type: 3}
   diffAngle: {x: 0, y: 0, z: 0}
   weaponIndex: 0
   weapons: []
@@ -231,8 +232,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1092698663
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9fe2d215e1fa9f0418d7499790968e44, type: 3}
   m_Color: {r: 0.02616591, g: 0.25156656, b: 0.7924528, a: 1}
@@ -312,8 +313,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1092698663
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dbf8ab7544ca4cd49914bec1c29fecf1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

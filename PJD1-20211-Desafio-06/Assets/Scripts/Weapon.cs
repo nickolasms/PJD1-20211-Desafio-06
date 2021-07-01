@@ -95,7 +95,7 @@ public class Weapon : MonoBehaviour
         {
             yield break;
         }
-        Debug.Log("Begin Reload");
+        
         isReloading = true;
         int ammoDiff = Mathf.Min(AmmoMax, amount);
         GameEvents.WeaponReloadEvent.Invoke(ReloadSpeed,ammoDiff,Type);
@@ -103,7 +103,6 @@ public class Weapon : MonoBehaviour
         Ammo = ammoDiff;
         isReloading = false;
         GameEvents.WeaponFireEvent.Invoke(Ammo, AmmoMax,Type);
-        Debug.Log("End Reload");
     }
 
 }

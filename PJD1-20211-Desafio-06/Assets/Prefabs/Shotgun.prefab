@@ -97,8 +97,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1092698663
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e39dc9dd273657045896e3aeaec8c5bb, type: 3}
   m_Color: {r: 0.09011215, g: 0.4245283, b: 0.26593238, a: 1}
@@ -127,7 +127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4676119126124500977
 Transform:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDTO: {fileID: 11400000, guid: 083bc5f217d8e1443809f16e5965bf5b, type: 2}
-  bulletRespawn: {fileID: 0}
+  bulletRespawn: {fileID: 4676119125633683363}
 --- !u!1 &4676119126188503071
 GameObject:
   m_ObjectHideFlags: 0

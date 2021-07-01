@@ -82,7 +82,7 @@ public class PlayerController : Rigidbody2DBase
     
 
         //adiciona o icon do player no minimapa
-        IconCreator.AddIcon(transform, 0);
+        // IconCreator.AddIcon(transform, 0);
 
     }
 
@@ -97,10 +97,10 @@ public class PlayerController : Rigidbody2DBase
         ammunition.Add(WeaponType.RocketLauncher, 12);
 
         //GameEvents.WeaponFireEvent.AddListener();
-        GameEvents.WeaponReloadEvent.AddListener(HandleRealod);
+        GameEvents.WeaponReloadEvent.AddListener(HandleReload);
     }
 
-    protected void HandleRealod(float reloadSpeed, int ammo, WeaponType weapon)
+    protected void HandleReload(float reloadSpeed, int ammo, WeaponType weapon)
     {
         Debug.LogFormat("B>> {0} {1} {2}", reloadSpeed, ammo, weapon);
         int weaponAmmo = ammunition[weapon];
@@ -156,6 +156,7 @@ public class PlayerController : Rigidbody2DBase
         {
             str += weapon.Key + ": " + weapon.Value + "\n";
         }
+
         debug.text = str;
 
     }

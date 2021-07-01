@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,7 +28,9 @@ public class InputController : MonoBehaviour
 
     private void Awake()
     {
-        cam = Camera.main;
+        cam = Camera.allCameras.ToList().Find(_camera => {
+            return _camera.name.Contains("Main");
+        });
         player = GameObject.FindObjectOfType<PlayerController>();
     }
 

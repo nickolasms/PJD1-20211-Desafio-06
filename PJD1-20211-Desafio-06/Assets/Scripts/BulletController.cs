@@ -53,14 +53,14 @@ public class BulletController : Rigidbody2DBase, IPoolableObject
     {
         if(Vector2.Distance(startPosition,tf.position) >= distance)
         {
-            Debug.Log(gameObject.name);
             Factory.Recycle(FactoryItem.PlayerBullet, gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
+        if (collision.name == "Ground") return;
+
         GameController.PlayerBulletTrigger(this, collision);
         Factory.Recycle(FactoryItem.PlayerBullet, gameObject);
     }

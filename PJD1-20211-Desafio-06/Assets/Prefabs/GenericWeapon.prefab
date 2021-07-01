@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDTO: {fileID: 11400000, guid: 77e1c18e3c75a3b42aa50c535897ee1c, type: 2}
-  bulletRespawn: {fileID: 0}
+  bulletRespawn: {fileID: 5128702953616034459}
 --- !u!1 &5128702954464079265
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,8 +175,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1092698663
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e39dc9dd273657045896e3aeaec8c5bb, type: 3}
   m_Color: {r: 0.17254902, g: 0.17254902, b: 0.17254902, a: 1}

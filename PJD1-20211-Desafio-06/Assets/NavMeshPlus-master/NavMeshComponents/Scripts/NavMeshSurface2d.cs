@@ -490,10 +490,8 @@ namespace UnityEngine.AI
             }
             foreach (var tilemap in tilemaps)
             {
-                //Debug.Log($"From Local Bounds [{tilemap.name}]: {tilemap.localBounds}");
                 var lbounds = GetWorldBounds(worldToLocal * tilemap.transform.localToWorldMatrix, tilemap.localBounds);
                 bounds.Encapsulate(lbounds);
-                //Debug.Log($"To World Bounds: {bounds}");
             }
             bounds.Expand(0.1f);
             return bounds;
