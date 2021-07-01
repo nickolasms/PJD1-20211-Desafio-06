@@ -6,6 +6,7 @@ using Factory = FactoryController;
 public class GameController : MonoBehaviour
 {
     public GameObject BulletPrefab;
+    public GameObject RocketPrefab;
     public GameObject Enemy;
 
     static private PlayerController player;
@@ -14,6 +15,7 @@ public class GameController : MonoBehaviour
     {
         Factory.Clear();
         Factory.Register(FactoryItem.PlayerBullet, BulletPrefab, 100);
+        Factory.Register(FactoryItem.PlayerRocket, RocketPrefab, 100);
         Factory.Register(FactoryItem.Enemy, Enemy, 200);
 
         player = GameObject.FindObjectOfType<PlayerController>();
@@ -34,6 +36,23 @@ public class GameController : MonoBehaviour
             {
                 Factory.Recycle(FactoryItem.Enemy, enemy.gameObject);
                 RespawnEnemy();
+            }
+        }
+    }
+    static public void PlayerRocketTrigger(RocketController rocket, Collider2D collision)
+    {
+        Debug.Log(rocket.enemies.Length);
+        foreach (Collider2D en in rocket.enemies)
+        {
+            EnemyController enemy = en.GetComponent<EnemyController>();
+            Debug.Log(enemy);
+            if (enemy)
+            {
+                if (enemy.ApplyDamage(rocket.Damage))
+                {
+                    Factory.Recycle(FactoryItem.Enemy, enemy.gameObject);
+                    RespawnEnemy();
+                }
             }
         }
     }
