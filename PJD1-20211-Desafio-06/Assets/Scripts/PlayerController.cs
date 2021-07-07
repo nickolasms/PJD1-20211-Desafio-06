@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public class PlayerController : Rigidbody2DBase
 {
+
     public Text debug;
 
-    public int Hp { get; protected set; }
+    public int Hp { get; set; }
     public int MaxHp { get; protected set; }
 
     public GameObject bulletPrefab;
+
 
     private float speed = 2f;
 
@@ -95,6 +97,7 @@ public class PlayerController : Rigidbody2DBase
         ammunition.Add(WeaponType.Shotgun, 16);
         ammunition.Add(WeaponType.MachineGun, 200);
         ammunition.Add(WeaponType.RocketLauncher, 12);
+        ammunition.Add(WeaponType.Sniper, 10);
 
         //GameEvents.WeaponFireEvent.AddListener();
         GameEvents.WeaponReloadEvent.AddListener(HandleReload);
@@ -165,4 +168,34 @@ public class PlayerController : Rigidbody2DBase
     {
         rb.velocity = new Vector2(Horizontal, Vertical) * speed;
     }
+
+    public void ChangeWeapon(ItenWeapon iten, int index, Color color, WeaponDTO weaponDTO)
+    {
+        WeaponDTO CurrentDTO = weapons[index].weaponDTO;
+        Color CurrentColor = weapons[index].gameObject.GetComponentInChildren<SpriteRenderer>().color;
+        weapons[index].weaponDTO = weaponDTO;
+        weapons[index].gameObject.GetComponentInChildren<SpriteRenderer>().color = color;
+
+        iten.weaponDTO = CurrentDTO;
+        iten.color = CurrentColor;
+    }
+
+    public void MaisAmmo(WeaponType type, int amount)
+    {
+        int weaponAmmo = ammunition[type];
+        weaponAmmo = weaponAmmo + amount;
+        ammunition[type] = weaponAmmo;
+    }
+
+    // public void OnTriggerStay2D(Collider2D other) 
+    // {
+    //     if(other.tag == "upgrade" && other.name == "Sniper2 collect")
+    //     {
+    //         if(Input.GetKeyDown(KeyCode.F))
+    //         {
+                
+    //             Debug.Log("sniper coletada");
+    //         }
+    //     }
+    // }
 }

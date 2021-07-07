@@ -14,6 +14,8 @@ public class EventPlayerHp : UnityEvent<int, int> { }
 public class EventEnemyHp : UnityEvent<int, int, Image> { }
 public class EventEnemyDamage : UnityEvent<int, Text> { }
 
+public class EventSniperTimer : UnityEvent<float> { }
+
 public class GameEvents : MonoBehaviour
 {
     static public EventReloadWeapon WeaponReloadEvent = new EventReloadWeapon();
@@ -27,6 +29,8 @@ public class GameEvents : MonoBehaviour
     static public EventEnemyDamage EnemyDamageEvent = new EventEnemyDamage();
 
     static public EventFireWeapon WeaponFireEvent = new EventFireWeapon();
+
+    static public EventSniperTimer WeaponSniper = new EventSniperTimer();
 
     private void Awake()
     {

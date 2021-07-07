@@ -13,6 +13,8 @@ public class HudController : MonoBehaviour
     public Color AmmoMin;
     public Color PlayerHpMax;
     public Color PlayerHpMin;
+
+    public Image SniperTimer;
    
 
     private void Awake()
@@ -20,6 +22,8 @@ public class HudController : MonoBehaviour
         Reload.fillAmount = 0;
         PlayerHp.fillAmount = 1f;
         PlayerHp.color = PlayerHpMax;
+
+        SniperTimer.fillAmount = 0;
      
     }
 
@@ -28,6 +32,8 @@ public class HudController : MonoBehaviour
         GameEvents.WeaponReloadEvent.AddListener(HandleReload);
         GameEvents.WeaponFireEvent.AddListener(HandleAmmo);
         GameEvents.PlayerHpEvent.AddListener(HandlePlayerHp);
+
+        GameEvents.WeaponSniper.AddListener(HandleSniperTimer);
 
     }
 
@@ -50,6 +56,11 @@ public class HudController : MonoBehaviour
         StartCoroutine(StartReload(reloadSpeed));
     }
 
+    protected void HandleSniperTimer(float time)
+    {
+        StartCoroutine(StartSniperTimer(time));
+    }
+
     protected IEnumerator StartReload(float reloadSpeed)
     {
         float current = reloadSpeed;
@@ -61,6 +72,22 @@ public class HudController : MonoBehaviour
             Reload.fillAmount = current / reloadSpeed;
         }
     }
+
+    protected IEnumerator StartSniperTimer(float time)
+    {
+        float t = 1f / time;
+        yield return new WaitForEndOfFrame();
+        SniperTimer.fillAmount = t;
+        if(t < 1f)
+        {
+            SniperTimer.gameObject.SetActive(true);
+        }
+        else
+        {
+            SniperTimer.gameObject.SetActive(false);
+        }
+    }
+
 
     private void Update()
     {

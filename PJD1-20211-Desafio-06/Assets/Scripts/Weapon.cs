@@ -19,6 +19,7 @@ public class Weapon : MonoBehaviour
 
     public WeaponDTO weaponDTO;
 
+
     protected bool isFiring;
     protected bool isReloading;
     protected bool CanFire 
@@ -39,6 +40,7 @@ public class Weapon : MonoBehaviour
         {
             Init(weaponDTO);
         }
+
     }
 
     public virtual void Init(WeaponDTO wdto)
@@ -55,7 +57,7 @@ public class Weapon : MonoBehaviour
         weaponDTO = wdto;
     }
 
-    public void Fire()
+    public virtual void Fire()
     {
         if(CanFire)
         {
@@ -80,6 +82,8 @@ public class Weapon : MonoBehaviour
         isFiring = false;
     }
 
+    
+
     public void Reload()
     {
         if(!isReloading && Ammo < AmmoMax)
@@ -103,6 +107,11 @@ public class Weapon : MonoBehaviour
         Ammo = ammoDiff;
         isReloading = false;
         GameEvents.WeaponFireEvent.Invoke(Ammo, AmmoMax,Type);
+    }
+
+    public virtual void Update()
+    {
+        
     }
 
 }

@@ -39,6 +39,16 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+    static public void CollectWeapon(ItenWeapon iten, int index, Color color, WeaponDTO weaponDTO)
+    {
+        player.ChangeWeapon(iten, index, color, weaponDTO);
+    }
+
+    static public void CollectAmmo(WeaponType type, int amount)
+    {
+        player.MaisAmmo(type, amount);
+    }
     static public void PlayerRocketTrigger(RocketController rocket, Collider2D collision)
     {
         Debug.Log(rocket.enemies.Length);
